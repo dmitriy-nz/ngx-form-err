@@ -1,0 +1,17 @@
+<form [formGroup]="userForm">
+
+  <div class="form-group mb-3">
+    <label>Firstname</label>
+    <input class="form-control" placeholder="Enter your firstname" formControlName="name">
+    <ngx-form-err [control]="userForm.controls.name"></ngx-form-err>
+  </div>
+
+  <div class="form-group">
+    <label>Firstname</label>
+    <input class="form-control" placeholder="Enter your lastname" formControlName="lastname">
+    <ngx-form-err [control]="userForm.controls.lastname"></ngx-form-err>
+  </div>
+
+  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+
+</form>

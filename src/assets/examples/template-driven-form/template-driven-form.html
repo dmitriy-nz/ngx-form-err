@@ -1,0 +1,34 @@
+<form>
+
+  <div class="form-group mb-3">
+    <label>Firstname</label>
+    <input class="form-control"
+           name="firstname"
+           [(ngModel)]="name"
+           placeholder="Enter your firstname"
+           [required]="true"
+           [minlength]="2"
+           pattern="[a-z]*"
+           #nameNgModel="ngModel">
+
+    <!--    show validation error here-->
+    <ngx-form-err [control]="nameNgModel"></ngx-form-err>
+  </div>
+
+  <div class="form-group">
+    <label>Firstname</label>
+    <input class="form-control" name="lastname"
+           [(ngModel)]="lastname"
+           placeholder="Enter your lastname"
+           [required]="true"
+           [maxLength]="10"
+           pattern="[a-z -]*"
+           #lastNameNgModel="ngModel">
+
+    <!--    show validation error here-->
+    <ngx-form-err [control]="lastNameNgModel"></ngx-form-err>
+  </div>
+
+  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+
+</form>

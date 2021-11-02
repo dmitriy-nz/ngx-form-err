@@ -1,0 +1,163 @@
+<header>
+  <div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+      <a href="https://github.com/dmitriy-nz/ngx-form-err" class="navbar-brand d-flex align-items-center">
+        <strong>ngx-form-err</strong>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+  <section class="text-center pt-5 pb-5">
+    <div class="container">
+      <h1>ngx-form-err</h1>
+      <h4>Flexible display of validation errors in angular forms</h4>
+
+      <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+          <p class="text-muted">
+            Display localized validation messages for your angular forms. Customize the message display logic to suit
+            your needs
+          <p>
+        </div>
+      </div>
+
+      <a href="https://github.com/dmitriy-nz/ngx-form-err" class="btn btn-primary">GitHub</a>
+    </div>
+  </section>
+</main>
+
+
+<div class="container">
+
+  <h2>Examples</h2>
+
+  <div class="dropdown-divider"></div>
+
+  <div class="row mt-4">
+    <div class="col-12 col-md-6">
+      <h5>Template-driven form</h5>
+      <p>Example of displaying validation errors when using angular template-driven form</p>
+      <form>
+        <div class="form-group mb-3">
+          <label>Firstname</label>
+          <input class="form-control"
+                 name="firstname"
+                 [(ngModel)]="name"
+                 placeholder="Enter your firstname"
+                 [required]="true"
+                 [minlength]="2"
+                 pattern="[a-z]*"
+                 #nameNgModel="ngModel">
+
+          <ngx-form-err [control]="nameNgModel"></ngx-form-err>
+
+        </div>
+        <div class="form-group">
+          <label>Firstname</label>
+          <input class="form-control" name="lastname"
+                 [(ngModel)]="lastname"
+                 placeholder="Enter your lastname"
+                 [required]="true"
+                 [maxLength]="10"
+                 pattern="[a-z -]*"
+                 #lastNameNgModel="ngModel">
+
+          <ngx-form-err [control]="lastNameNgModel"></ngx-form-err>
+        </div>
+
+
+        <button class="btn btn-primary mt-3" type="submit">Submit</button>
+
+      </form>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <tabset>
+        <tab heading="HTML">
+          <app-show-example-code
+            path="template-driven-form/template-driven-form.html"></app-show-example-code>
+        </tab>
+        <tab heading="TS">
+          <app-show-example-code
+            path="template-driven-form/template-driven-form.ts"></app-show-example-code>
+        </tab>
+      </tabset>
+    </div>
+
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 col-md-6">
+      <h5>Reactive form usage</h5>
+      <p>Example of displaying validation errors when using angular reactive form</p>
+
+      <form [formGroup]="userForm">
+        <div class="form-group mb-3">
+          <label>Firstname</label>
+          <input class="form-control" placeholder="Enter your firstname" formControlName="name">
+          <ngx-form-err [control]="userForm.controls.name"></ngx-form-err>
+        </div>
+
+
+        <div class="form-group">
+          <label>Firstname</label>
+          <input class="form-control" placeholder="Enter your lastname" formControlName="lastname">
+          <ngx-form-err [control]="userForm.controls.lastname"></ngx-form-err>
+        </div>
+
+
+        <button class="btn btn-primary mt-3" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <tabset>
+        <tab heading="HTML">
+          <app-show-example-code
+            path="reactive-form/reactive-form.html"></app-show-example-code>
+        </tab>
+        <tab heading="TS">
+          <app-show-example-code
+            path="reactive-form/reactive-form.ts"></app-show-example-code>
+        </tab>
+      </tabset>
+    </div>
+
+  </div>
+
+  <h2>Error message customization</h2>
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <p>
+        To customize validation error messages, reload <code>NgxFormErrStorageFactory</code> with your implementation,
+        and be sure
+        to implement from <code>AbstractNgxFormErrStorageFactory</code></p>
+      <p>
+        The <code>getErrorStorage</code> method must be implemented, it must return an object of type <code>ErrorGeneratorStorage</code>
+      </p>
+
+      <p><code>ErrorGeneratorStorage</code> is an object whose keys are the name of the validator, and the value is a
+        string or function to generate an error message. Depending on the type of validator, additional data will be
+        passed as the first argument to the function to generate an error message.</p>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <tabset>
+        <tab heading="app.module.ts">
+          <app-show-example-code
+            path="message-customization/app-module.ts"></app-show-example-code>
+        </tab>
+        <tab heading="custom-form-err-storage.factory.ts">
+          <app-show-example-code
+            path="message-customization/custom-form-err-storage.factory.ts"></app-show-example-code>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+
+</div>
+
