@@ -71,7 +71,6 @@ export class NgxFormErrComponent implements OnInit, AfterViewInit, OnDestroy {
           }
           break;
         case NgxFormErrViewLogic.formSubmitted:
-          console.log(this.formStatic, this.formStatic.submitted);
           if (this.formStatic.submitted) {
             return true;
           }
