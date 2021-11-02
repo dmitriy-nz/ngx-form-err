@@ -35,7 +35,6 @@ import {NgxFormErrStorageFactory} from '../../projects/ngx-form-err/src/lib/prov
         coreLibraryLoader: () => import('highlight.js/lib/core'),
         languages: {
           typescript: () => import('highlight.js/lib/languages/typescript'),
-          css: () => import('highlight.js/lib/languages/css'),
           xml: () => import('highlight.js/lib/languages/xml')
         }
       }
