@@ -17,7 +17,7 @@ are supported.
 - change messages to your liking, for localization messages
 - variable in messages, include specifics from validator (e.g. min length)
 
-### [Demo](https://dmitriy-nz.github.io/ngx-from-err/)
+### [Demo](https://dmitriy-nz.github.io/ngx-form-err/)
 
 ## Installation
 

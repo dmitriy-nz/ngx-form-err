@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-gh-pages": "ng build --prod --base-href \"https://dmitriy-nz.github.io/ngx-form-err/\"",
+    "deploy-gh-pages": "npx angular-cli-ghpages -d dist/ngx-form-err-m"
   },
   "private": true,
   "dependencies": {
