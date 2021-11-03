@@ -7,8 +7,6 @@ import {ShowExampleCodeComponent} from './show-example-code/show-example-code.co
 import {HttpClientModule} from '@angular/common/http';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {TabsModule} from 'ngx-bootstrap/tabs';
-import {CustomFormErrStorageFactory} from './custom-form-err-storage.factory';
-import {NgxFormErrStorageFactory} from '../../projects/ngx-form-err/src/lib/providers/ngx-form-err-storage.factory';
 
 @NgModule({
   declarations: [
@@ -25,10 +23,10 @@ import {NgxFormErrStorageFactory} from '../../projects/ngx-form-err/src/lib/prov
     TabsModule.forRoot()
   ],
   providers: [
-    {
-      provide: NgxFormErrStorageFactory,
-      useClass: CustomFormErrStorageFactory
-    },
+    // {
+    //   provide: NgxFormErrStorageFactory,
+    //   useClass: CustomFormErrStorageFactory
+    // },
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
