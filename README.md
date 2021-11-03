@@ -1,7 +1,9 @@
 # Description
 
-Flexible display of validation errors in angular forms  
-Display localized validation messages for your angular forms. Customize the message display logic to suit your needs
+Angular library for displaying your form validation errors
+
+Reactive and template forms, customization of error display logic, customization of messages and variables in messages
+are supported.
 
 ## Features
 

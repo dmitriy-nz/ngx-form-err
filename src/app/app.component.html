@@ -9,31 +9,52 @@
 </header>
 
 <main role="main">
-  <section class="text-center pt-5 pb-5">
+  <section class="pt-5 pb-5">
     <div class="container">
-      <h1>ngx-form-err</h1>
-      <h4>Flexible display of validation errors in angular forms</h4>
+      <h1 class="text-center">ngx-form-err</h1>
+      <h4 class="text-center">Flexible display of validation errors in angular forms</h4>
 
-      <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
+      <div class="row mt-5">
+        <div class="col-12 col-md-6">
           <p class="text-muted">
-            Display localized validation messages for your angular forms. Customize the message display logic to suit
-            your needs
-          <p>
+            Angular library for displaying your form validation errors. Reactive and template forms, customization of
+            error display logic, customization of messages and variables in messages are supported.
+          </p>
+
+          <a href="https://github.com/dmitriy-nz/ngx-form-err" class="btn btn-primary">GitHub</a>
+        </div>
+
+
+        <div class="col-12 col-md-6">
+
+          <h5>Features</h5>
+
+          <ul>
+            <li>Support for reactive and templated forms</li>
+            <li>customize error display logic</li>
+            <ul>
+              <li>always</li>
+              <li>when typing</li>
+              <li>when you lose focus</li>
+              <li>when submitting a form</li>
+            </ul>
+            <li>small markup</li>
+            <li>change messages to your liking, for localization messages</li>
+            <li>variable in messages, include specifics from validator (e.g. min length)</li>
+          </ul>
         </div>
       </div>
 
-      <a href="https://github.com/dmitriy-nz/ngx-form-err" class="btn btn-primary">GitHub</a>
+
     </div>
   </section>
 </main>
 
+<div class="divider"></div>
 
 <div class="container">
 
-  <h2>Examples</h2>
-
-  <div class="dropdown-divider"></div>
+  <h2>Usage example</h2>
 
   <div class="row mt-4">
     <div class="col-12 col-md-6">
@@ -127,9 +148,134 @@
 
   </div>
 
-  <h2>Error message customization</h2>
+  <div class="divider"></div>
+
 
   <div class="row">
+
+    <div class="col-12">
+      <h2 class="mb-4">Demo configure </h2>
+    </div>
+
+    <div class="col-12 col-md-6">
+
+      <form #demoConfigureForm="ngForm">
+        <div class="form-group mb-3">
+          <label>City</label>
+          <input class="form-control"
+                 name="city"
+                 [(ngModel)]="demoForm.city"
+                 placeholder="City (required, minlength 2, maxLength 20, pattern [a-z ]*)"
+                 [required]="true"
+                 [minlength]="2"
+                 [maxLength]="20"
+                 pattern="[a-z]*"
+                 #cityNgModel="ngModel">
+
+          <ngx-form-err [control]="cityNgModel" [showWhen]="showErrorWhenSelected"
+                        [mode]="errorViewLogicSelected"></ngx-form-err>
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Street</label>
+          <input class="form-control"
+                 name="street"
+                 [(ngModel)]="demoForm.street"
+                 placeholder="Street (required, minlength 2, maxLength 30, pattern [a-z ]*)"
+                 [required]="true"
+                 [minlength]="2"
+                 [maxLength]="30"
+                 pattern="[a-z]*"
+                 #streetNgModel="ngModel">
+
+          <ngx-form-err [control]="streetNgModel" [showWhen]="showErrorWhenSelected"
+                        [mode]="errorViewLogicSelected"></ngx-form-err>
+        </div>
+
+        <div class="form-group mb-3">
+          <label>ZIP Code</label>
+          <input class="form-control"
+                 name="zip"
+                 [(ngModel)]="demoForm.zip"
+                 placeholder="Street (required, minlength 6, maxLength 6, pattern [0-9]*)"
+                 [required]="true"
+                 [minlength]="6"
+                 [maxLength]="6"
+                 pattern="[0-9]*"
+                 #zipNgModel="ngModel">
+
+          <ngx-form-err [control]="zipNgModel" [showWhen]="showErrorWhenSelected"
+                        [mode]="errorViewLogicSelected"></ngx-form-err>
+        </div>
+
+        <div class="btn-group mt-3">
+          <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-warning" type="button" (click)="demoConfigureForm.resetForm()">Reset form</button>
+        </div>
+
+
+      </form>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <form>
+        <div class="form-group">
+
+          <h5>Show error when</h5>
+
+          <label class="d-block">
+            <input type="checkbox" [checked]="showErrorWhenSelected.includes(ngxFormErrViewLogic.immediately)"
+                   (click)="toggleShowErrorWhen(ngxFormErrViewLogic.immediately)">
+            Immediately
+          </label>
+
+          <label class="d-block mt-1">
+            <input type="checkbox" [checked]="showErrorWhenSelected.includes(ngxFormErrViewLogic.formSubmitted)"
+                   (click)="toggleShowErrorWhen(ngxFormErrViewLogic.formSubmitted)">
+            Form submitted
+          </label>
+
+          <label class="d-block mt-1">
+            <input type="checkbox" [checked]="showErrorWhenSelected.includes(ngxFormErrViewLogic.dirty)"
+                   (click)="toggleShowErrorWhen(ngxFormErrViewLogic.dirty)">
+            Dirty
+          </label>
+
+          <label class="d-block mt-1">
+            <input type="checkbox" [checked]="showErrorWhenSelected.includes(ngxFormErrViewLogic.touched)"
+                   (click)="toggleShowErrorWhen(ngxFormErrViewLogic.touched)">
+            Touched
+          </label>
+
+        </div>
+
+        <div class="form-group mt-3">
+          <h5>View error mode</h5>
+          <label class="d-block">
+            <input type="radio" name="viewMode" [(ngModel)]="errorViewLogicSelected"
+                   [value]="ngxFormErrViewMode.single">
+            Show only first error
+          </label>
+
+          <label class="d-block mt-1">
+            <input type="radio" name="viewMode" [(ngModel)]="errorViewLogicSelected" [value]="ngxFormErrViewMode.all">
+            Show all errors
+          </label>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="row">
+
+    <div class="col-12">
+      <h2>Error message customization</h2>
+    </div>
+
     <div class="col-12 col-md-6">
       <p>
         To customize validation error messages, reload <code>NgxFormErrStorageFactory</code> with your implementation,
@@ -143,7 +289,6 @@
         string or function to generate an error message. Depending on the type of validator, additional data will be
         passed as the first argument to the function to generate an error message.</p>
     </div>
-
     <div class="col-12 col-md-6">
       <tabset>
         <tab heading="app.module.ts">
