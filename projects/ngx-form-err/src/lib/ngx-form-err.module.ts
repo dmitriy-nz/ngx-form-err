@@ -23,7 +23,7 @@ import {NgxFormErrConfig} from './interfaces/NgxFormErrConfig';
   exports: [NgxFormErrComponent]
 })
 export class NgxFormErrModule {
-  static forRoot(config: NgxFormErrConfig): ModuleWithProviders {
+  static forRoot(config: NgxFormErrConfig): ModuleWithProviders<NgxFormErrModule> {
     const configCopy: NgxFormErrConfig = {
       mode: config.mode || DefaultNgFormErrConfig.mode,
       showWhen: config.showWhen || DefaultNgFormErrConfig.showWhen
