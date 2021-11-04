@@ -1,6 +1,6 @@
 {
   "name": "ngx-form-err-m",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,14 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-gh-pages": "ng build --prod --base-href \"https://dmitriy-nz.github.io/ngx-form-err/\"",
-    "deploy-gh-pages": "npx angular-cli-ghpages -d dist/ngx-form-err-m"
+    "deploy-gh-pages": "npx angular-cli-ghpages -d dist/ngx-form-err-m",
+    "prepublish": "ng build ngx-form-err --prod"
+  },
+  "author": "dmitriy-nz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitriy-nz/ngx-form-err.git"
   },
   "private": true,
   "dependencies": {
