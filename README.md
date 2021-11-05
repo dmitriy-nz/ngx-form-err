@@ -38,7 +38,8 @@ export class AppModule {
 }
 ```
 
-### Versions
+### Version
+
 | angular version | ngx-form-err version |
 |-----------------|----------------------|
 | 9.x.x           | 9.0.0                |
