@@ -38,6 +38,14 @@ export class AppModule {
 }
 ```
 
+### Versions
+| angular version | ngx-form-err version |
+|-----------------|----------------------|
+| 9.x.x           | 9.0.0                |
+| 10.x.x          | 10.0.1               |
+| 11.x.x          | 11.0.1               |
+| 12.x.x          | latest               |
+
 ## Usage
 
 ### Template-driven form
