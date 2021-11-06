@@ -7,15 +7,15 @@ are supported.
 
 ## Features
 
-- Support for reactive and templated forms
+- Support for reactive and templated forms;
 - customize error display logic:
-  - always
-  - when typing
-  - when you lose focus
-  - when submitting a form
-- small markup
-- change messages to your liking, for localization messages
-- variable in messages, include specifics from validator (e.g. min length)
+  - always;
+  - when typing;
+  - when you lose focus;
+  - when submitting a form;
+- small markup;
+- change messages to your liking, for localization messages;
+- variable in messages, include specifics from validator (e.g. min length);
 
 ### [Demo](https://dmitriy-nz.github.io/ngx-form-err/)
 
