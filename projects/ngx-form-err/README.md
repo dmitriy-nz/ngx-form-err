@@ -44,7 +44,7 @@ export class AppModule {
 | 9.x.x           | 9.0.0                |
 | 10.x.x          | 10.0.1               |
 | 11.x.x          | 11.0.1               |
-| 12.x.x          | latest               |
+| 12.x.x and up   | latest               |
 
 ## Usage
 
